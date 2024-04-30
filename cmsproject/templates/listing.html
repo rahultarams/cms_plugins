@@ -1,0 +1,6 @@
+{% for property in properties %}
+    <div>
+        <h2>{{ property.name }}</h2>xxx
+            <a href="{{ property.get_full_url }}">Read More {{ property.get_full_url }}</a>
+    </div>
+{% endfor %}
