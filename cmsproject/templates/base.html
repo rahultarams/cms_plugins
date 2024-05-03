@@ -32,8 +32,7 @@
             {% show_menu 0 100 100 100 %}
         </ul>
         <div class="content">
-                {% placeholder "content" %}
-                {% placeholder "content2" %}
+                {% block content %}{% endblock content %}
         </div>
     </div>
     {% render_block "js" %}

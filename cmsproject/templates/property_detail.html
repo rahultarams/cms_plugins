@@ -1,4 +1,4 @@
-{% if property %}
-    <h2>{{ property.name }}</h2>
-    <p>{{ property.address }}</p>
-{% endif %}
+<div id="detail-{{ property.pk }}" class="detail-plugin">
+    <h1>{{ property.name }}</h1>
+    <p>{{ property.address }}</p>  <!-- Assuming 'description' is a field in 'YourItemModel' -->
+</div>

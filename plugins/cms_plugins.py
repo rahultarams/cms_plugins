@@ -17,7 +17,6 @@ class PropertieslistingPlugin(CMSPluginBase):
 
 
     def render(self, context, instance, placeholder):
-        #property_id = context['property_id']
         context['properties'] = Properties.objects.all()
         return context
 
@@ -30,10 +29,9 @@ class PropertyDetailPlugin(CMSPluginBase):
     #allow_children = False
 
     def render(self, context, instance, placeholder):
-        property_id = instance.id
-        print("render executed")
-        print(instance.name)
-        context['property'] = Properties.objects.get(pk=property_id)
+        req = context['request']
+        param1 = req.GET.get('param1')
+        context['property'] = Properties.objects.get(pk=param1)
         return context
 
 #plugin_pool.register_plugin(PropertyDetailPlugin)

@@ -1,6 +1,15 @@
-{% for property in properties %}
-    <div>
-        <h2>{{ property.name }}</h2>xxx
-            <a href="{{ property.get_full_url }}">Read More {{ property.get_full_url }}</a>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="grid-container">
+        {% for property in properties %}
+            <div class="grid-item" style="border: 2px solid black; padding: 10px; margin-bottom: 10px;">
+                <a href="{% url 'item_detail' property.id %}">{{ property.name }}</a>
+                <p></p>
+                <span><a href="/test-2/?param1={{property.id}}" class="plugin-navigate">Plugin navigate</a> </span>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
+{% endblock %}

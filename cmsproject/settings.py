@@ -179,12 +179,14 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
     'cmsproject',
-    'plugins'
+    'plugins',
+    'djangocms_faq',
 ]
 
 LANGUAGES = (
     ## Customize this
     ('en', gettext('en')),
+    ('ar', gettext('ar'))
 )
 
 CMS_LANGUAGES = {
@@ -198,6 +200,16 @@ CMS_LANGUAGES = {
             'hide_untranslated': False,
         },
     ],
+    2: [
+        {
+            'code': 'ar',
+            'name': 'Arabic',
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },
+    ],
+
     'default': {
         'redirect_on_fallback': True,
         'public': True,

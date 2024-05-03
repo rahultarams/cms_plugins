@@ -13,7 +13,12 @@ urlpatterns = [
 ]
 
 
-urlpatterns += i18n_patterns(path("admin/", admin.site.urls), path("", include("cms.urls")))
+urlpatterns += i18n_patterns(path("admin/", admin.site.urls),
+                             path("plugins/", include("plugins.urls")),
+                             path("", include("cms.urls")),
+                             path("djangocms-faq/", include("djangocms_faq.urls")),
+                             )
+
 
 # This is only needed when using runserver.
 if settings.DEBUG:
