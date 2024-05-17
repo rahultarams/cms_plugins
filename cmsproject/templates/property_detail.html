@@ -1,4 +1,7 @@
+{% load i18n %}
+{% block content %}
 <div id="detail-{{ property.pk }}" class="detail-plugin">
-    <h1>{{ property.name }}</h1>
-    <p>{{ property.address }}</p>  <!-- Assuming 'description' is a field in 'YourItemModel' -->
+    <h1>{% trans "Property Name" %} : {{property.name}}</h1>
+    <p>{% trans "Property Address" %} : {{property.address}}</p>  <!-- Assuming 'description' is a field in 'YourItemModel' -->
 </div>
+{% endblock %}

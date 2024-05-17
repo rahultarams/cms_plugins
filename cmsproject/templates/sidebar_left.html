@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load cms_tags %}
-
+{% load i18n %}
 {% block title %}{% page_attribute "page_title" %}{% endblock title %}
 
 {% block content %}
@@ -8,6 +8,8 @@
         {% placeholder "sidebar" %}
     </div>
     <div class="content">
-        {% placeholder "content2" %}
+        <h1> {% trans "Detail PAGE" %} </h1>
+        <h2> {% trans "Django is nice" %} </h2>
+            {% placeholder "content2" %}
     </div>
 {% endblock content %}

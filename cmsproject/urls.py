@@ -5,15 +5,20 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
+from django.views.i18n import JavaScriptCatalog
 
 admin.autodiscover()
 
 urlpatterns = [
-    path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
+    #path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
 ]
 
 
-urlpatterns += i18n_patterns(path("admin/", admin.site.urls),
+urlpatterns += i18n_patterns(
+                             path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
+                             path("admin/", admin.site.urls),
+                             path(r'^i18n/', include('django.conf.urls.i18n')),
                              path("plugins/", include("plugins.urls")),
                              path("", include("cms.urls")),
                              path("djangocms-faq/", include("djangocms_faq.urls")),

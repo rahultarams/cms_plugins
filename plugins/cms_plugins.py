@@ -9,7 +9,6 @@ from .models import Properties
 
 @plugin_pool.register_plugin
 class PropertieslistingPlugin(CMSPluginBase):
-
     name = _("Properties listing")
     model = Properties
     render_template = "listing.html"
@@ -17,6 +16,9 @@ class PropertieslistingPlugin(CMSPluginBase):
 
 
     def render(self, context, instance, placeholder):
+        #if context['request'].LANGUAGE_CODE == 'ar':
+        #    self.render_template = 'arabic.html'
+        print(context['request'].LANGUAGE_CODE)
         context['properties'] = Properties.objects.all()
         return context
 

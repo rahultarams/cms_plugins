@@ -184,11 +184,12 @@ INSTALLED_APPS = [
 ]
 
 LANGUAGES = (
-    ## Customize this
-    ('en', gettext('en')),
-    ('ar', gettext('ar'))
+    ('ar', 'Arabic'),
+    ('en', 'English'),
+    ('fr', 'French'),
 )
 
+"""
 CMS_LANGUAGES = {
     ## Customize this
     1: [
@@ -216,7 +217,7 @@ CMS_LANGUAGES = {
         'hide_untranslated': False,
     },
 }
-
+"""
 CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Fullwidth'),
@@ -249,3 +250,9 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+LOCALE_PATHS = (
+   os.path.join(BASE_DIR, 'locale'),
+)
+
+CMS_TOOLBAR = True

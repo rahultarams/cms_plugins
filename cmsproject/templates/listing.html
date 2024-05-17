@@ -1,14 +1,16 @@
-{% extends 'base.html' %}
+
 
 {% load static %}
-
+{% load i18n %}
 {% block content %}
     <div class="grid-container">
+        <h1> {% trans "listing PAGE" %} </h1>
+        <h2> {% trans "Django is nice" %} </h2>
         {% for property in properties %}
             <div class="grid-item" style="border: 2px solid black; padding: 10px; margin-bottom: 10px;">
                 <a href="{% url 'item_detail' property.id %}">{{ property.name }}</a>
                 <p></p>
-                <span><a href="/test-2/?param1={{property.id}}" class="plugin-navigate">Plugin navigate</a> </span>
+                <span><a href="/test-2/?param1={{property.id}}" class="plugin-navigate">See More</a> </span>
             </div>
         {% endfor %}
     </div>
